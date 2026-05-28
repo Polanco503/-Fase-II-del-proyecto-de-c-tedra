@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    color: #172033;
+}
+
+.page {
+    width: min(460px, calc(100% - 32px));
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-panel {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #d7dce5;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 12px 28px rgba(20, 30, 48, 0.08);
+}
+
+.eyebrow {
+    margin: 0 0 6px;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h1,
+h2 {
+    margin: 0 0 20px;
+}
+
+.intro {
+    margin: -10px 0 20px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.form {
+    display: grid;
+    gap: 14px;
+}
+
+label {
+    display: grid;
+    gap: 6px;
+    font-weight: 700;
+}
+
+input {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #b8c0cc;
+    border-radius: 6px;
+    font: inherit;
+}
+
+button {
+    min-height: 42px;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #1f6feb;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #185abc;
+}
+
+.secondary {
+    background: #4b5563;
+}
+
+.secondary:hover {
+    background: #374151;
+}
+
+.quick-users,
+.actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.actions {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.status {
+    min-height: 22px;
+    margin: 16px 0 0;
+    color: #374151;
+}
+
+pre {
+    width: 100%;
+    max-width: 100%;
+    min-height: 180px;
+    max-height: 300px;
+    overflow: auto;
+    margin: 16px 0;
+    padding: 14px;
+    border-radius: 6px;
+    background: #111827;
+    color: #e5e7eb;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+@media (max-width: 760px) {
+    .page {
+        padding: 24px 0;
+    }
+
+    .quick-users {
+        grid-template-columns: 1fr;
+    }
+}
