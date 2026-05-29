@@ -18,9 +18,9 @@ Aplicacion Spring Boot para una fase del sistema de restaurante. Incluye autenti
 2. Verificar la configuracion en `src/main/resources/application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=restaurant_db;encrypt=true;trustServerCertificate=true
-spring.datasource.username=restaurant_user
-spring.datasource.password=Restaurant123!
+spring.datasource.url=jdbc:mysql://localhost:3306/restaurant_db?useSSL=false&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=
 ```
 
 3. Ejecutar la aplicacion:
@@ -35,10 +35,10 @@ En Windows:
 mvnw.cmd spring-boot:run
 ```
 
-4. Abrir el login:
+4. Abrir la aplicacion:
 
 ```text
-http://localhost:8080/login.html
+http://localhost:8080/
 ```
 
 ## Usuarios de prueba
@@ -60,7 +60,7 @@ La aplicacion crea estos usuarios automaticamente si no existen:
 - Puede crear productos.
 - Puede editar productos.
 - Puede borrar productos.
-- Puede acceder a `/api/admin/test`.
+- Puede agregar usuarios.
 
 ### MESERO
 
@@ -69,14 +69,13 @@ La aplicacion crea estos usuarios automaticamente si no existen:
 - Puede crear productos.
 - Puede editar productos.
 - No puede borrar productos.
-- Puede acceder a `/api/mesero/test`.
 
 ### USUARIO
 
-- Puede iniciar sesion.
 - Puede ver productos existentes.
 - No puede crear, editar ni borrar productos.
-- Puede acceder a `/api/usuario/test`.
+- Puede crear odenes.
+  
 
 ## Endpoints principales
 
