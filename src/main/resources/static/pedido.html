@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurante UDB - Pedido</title>
+    <link rel="stylesheet" href="/css/order.css">
+</head>
+<body>
+
+<header class="order-header">
+    <div>
+        <p class="eyebrow">Restaurante UDB</p>
+        <h1>Hacer pedido</h1>
+    </div>
+
+    <a href="/" class="back-link">
+        Volver
+    </a>
+</header>
+
+<main class="order-layout">
+
+    <section>
+        <div class="section-title">
+            <h2>Productos</h2>
+            <p id="productsStatus">Cargando productos...</p>
+        </div>
+
+        <div id="productsGrid"
+             class="products-grid">
+        </div>
+    </section>
+
+    <aside class="cart-panel">
+        <h2>Tu pedido</h2>
+
+        <div id="cartItems"
+             class="cart-items">
+            <p class="empty-cart">Selecciona productos para iniciar.</p>
+        </div>
+
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">$0.00</strong>
+        </div>
+
+        <button id="submitOrder"
+                class="submit-btn"
+                disabled>
+            Finalizar pedido
+        </button>
+
+        <p id="orderStatus"
+           class="order-status"></p>
+    </aside>
+
+</main>
+
+<section id="receiptPanel"
+         class="receipt-panel"
+         hidden>
+    <div class="receipt-card">
+        <p class="eyebrow">Comprobante</p>
+        <h2>Pedido recibido</h2>
+        <p class="receipt-number">
+            Orden <strong id="receiptOrderNumber"></strong>
+        </p>
+        <p>
+            Factura #<span id="receiptInvoiceId"></span>
+        </p>
+        <p>
+            Total: <strong id="receiptTotal"></strong>
+        </p>
+        <p class="receipt-note">
+            Conserva tu numero de orden para recibir tu pedido.
+        </p>
+        <a href="/pedido.html"
+           class="new-order-link">
+            Hacer otro pedido
+        </a>
+    </div>
+</section>
+
+<script src="/js/order.js"></script>
+
+</body>
+</html>

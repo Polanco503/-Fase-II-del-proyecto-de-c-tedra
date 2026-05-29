@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurant UDB - Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+<main class="page">
+
+    <section class="login-panel">
+
+        <div>
+            <p class="eyebrow">Restaurant UDB</p>
+
+            <h1>Iniciar Sesión</h1>
+
+            <p class="intro">
+                Ingresa con tu cuenta para acceder al sistema.
+            </p>
+        </div>
+
+        <form id="loginForm" class="form">
+
+            <label>
+                Correo Electrónico
+                <input id="email"
+                       type="email"
+                       required>
+            </label>
+
+            <label>
+                Contraseña
+                <input id="password"
+                       type="password"
+                       required>
+            </label>
+
+            <button type="submit">
+                Iniciar Sesión
+            </button>
+
+        </form>
+
+        <p id="status" class="status">
+            Sin sesión activa.
+        </p>
+
+        <a class="action-link secondary-link back-home-link"
+           href="/">
+            Volver
+        </a>
+
+    </section>
+
+</main>
+
+<script src="/js/login.js"></script>
+
+</body>
+</html>

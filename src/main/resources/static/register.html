@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurant UDB - Registro</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+<main class="page">
+
+    <section class="login-panel">
+
+        <div>
+            <p class="eyebrow">Restaurant UDB</p>
+
+            <h1>Crear Cuenta</h1>
+
+            <p class="intro">
+                Regístrate para realizar pedidos y consultar facturas.
+            </p>
+        </div>
+
+        <form id="registerForm" class="form">
+
+            <label>
+                Correo Electrónico
+                <input id="registerEmail"
+                       type="email"
+                       required>
+            </label>
+
+            <label>
+                Contraseña
+                <input id="registerPassword"
+                       type="password"
+                       required>
+            </label>
+
+            <label>
+                Confirmar Contraseña
+                <input id="confirmPassword"
+                       type="password"
+                       required>
+            </label>
+
+            <button type="submit">
+                Registrarme
+            </button>
+
+        </form>
+
+        <div class="register-link">
+
+            <p>¿Ya tienes cuenta?</p>
+
+            <a href="/login.html">
+                Iniciar Sesión
+            </a>
+
+        </div>
+
+        <p id="registerStatus" class="status"></p>
+
+    </section>
+
+</main>
+
+<script src="/js/register.js"></script>
+
+</body>
+</html>

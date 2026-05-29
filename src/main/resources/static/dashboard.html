@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurante UDB</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="brand">
+                <h2>Restaurante UDB</h2>
+                <p>Sistema de Gestión</p>
+            </div>
+
+            <nav class="menu">
+
+                <button class="menu-item active"
+                        data-section="homeSection">
+                    🏠 Inicio
+                </button>
+
+                <button class="menu-item"
+                        data-section="productsSection">
+                    🍽 Productos
+                </button>
+
+                <button class="menu-item"
+                        data-section="ordersSection">
+                    📋 Pedidos
+                </button>
+
+                <button class="menu-item"
+                        data-section="invoicesSection">
+                    🧾 Facturas
+                </button>
+
+                <button class="menu-item"
+                        data-section="usersSection">
+                    👥 Usuarios
+                </button>
+
+            </nav>
+
+        </div>
+
+        <button id="logout"
+                class="logout-btn">
+            Cerrar Sesión
+        </button>
+
+    </aside>
+
+    <main class="content">
+
+        <header class="topbar">
+
+            <h1>Dashboard</h1>
+
+            <p id="sessionStatus">
+                Cargando...
+            </p>
+
+        </header>
+
+        <!-- INICIO -->
+
+        <section id="homeSection">
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Productos</h3>
+                    <span id="totalProducts">0</span>
+                </div>
+
+                <div class="card">
+                    <h3>Pedidos</h3>
+                    <span id="totalOrders">0</span>
+                </div>
+
+                <div id="invoicesSummaryCard"
+                     class="card">
+                    <h3>Facturas</h3>
+                    <span id="totalInvoices">0</span>
+                </div>
+
+            </div>
+
+            <div class="welcome-panel">
+
+                <h2>Bienvenido al Sistema</h2>
+
+                <p>
+                    Administra productos,
+                    mesas,
+                    pedidos,
+                    facturas y usuarios
+                    desde un solo lugar.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- PRODUCTOS -->
+
+        <section id="productsSection" hidden>
+
+            <div class="section-header">
+
+                <h2>Productos del Menú</h2>
+
+                <button id="refreshProducts"
+                        class="secondary-btn">
+                    Actualizar
+                </button>
+
+            </div>
+
+            <div id="productFormPanel"
+                 class="product-form-panel"
+                 hidden>
+
+                <h3 id="productFormTitle">Agregar producto</h3>
+
+                <form id="productForm"
+                      class="product-form">
+
+                    <input type="hidden"
+                           id="productId">
+
+                    <label>
+                        Nombre
+                        <input id="productName"
+                               type="text"
+                               required>
+                    </label>
+
+                    <label>
+                        Precio
+                        <input id="productPrice"
+                               type="number"
+                               step="0.01"
+                               min="0"
+                               required>
+                    </label>
+
+                    <label>
+                        Stock
+                        <input id="productStock"
+                               type="number"
+                               min="0"
+                               required>
+                    </label>
+
+                    <div class="form-actions">
+                        <button type="submit"
+                                class="primary-btn">
+                            Guardar
+                        </button>
+
+                        <button type="button"
+                                id="cancelProductEdit"
+                                class="secondary-btn"
+                                hidden>
+                            Cancelar
+                        </button>
+                    </div>
+
+                    <p id="productStatus"
+                       class="form-status"></p>
+
+                </form>
+
+            </div>
+
+            <div id="productsContainer"
+                 class="products-grid">
+
+            </div>
+
+        </section>
+
+        <!-- MESAS -->
+
+        <section id="tablesSection" hidden>
+
+            <div class="section-header">
+
+                <h2>Mesas</h2>
+
+                <button id="refreshTables"
+                        class="secondary-btn">
+                    Actualizar
+                </button>
+
+            </div>
+
+            <div id="tableFormPanel"
+                 class="entity-form-panel"
+                 hidden>
+
+                <h3 id="tableFormTitle">Agregar mesa</h3>
+
+                <form id="tableForm"
+                      class="entity-form">
+
+                    <input type="hidden"
+                           id="tableId">
+
+                    <label>
+                        Numero de mesa
+                        <input id="tableNumber"
+                               type="number"
+                               min="1"
+                               required>
+                    </label>
+
+                    <label>
+                        Capacidad
+                        <input id="tableCapacity"
+                               type="number"
+                               min="1"
+                               required>
+                    </label>
+
+                    <div class="form-actions">
+                        <button type="submit"
+                                class="primary-btn">
+                            Guardar
+                        </button>
+
+                        <button type="button"
+                                id="cancelTableEdit"
+                                class="secondary-btn"
+                                hidden>
+                            Cancelar
+                        </button>
+                    </div>
+
+                    <p id="tableStatus"
+                       class="form-status"></p>
+
+                </form>
+
+            </div>
+
+            <div id="tablesContainer"
+                 class="tables-grid">
+
+            </div>
+
+        </section>
+
+        <!-- PEDIDOS -->
+
+        <section id="ordersSection" hidden>
+
+            <div class="welcome-panel">
+
+                <h2>Pedidos</h2>
+
+                <p>
+                    Aquí aparecerá la gestión
+                    completa de pedidos.
+                </p>
+
+            </div>
+
+            <div class="section-header">
+
+                <h2>Gestion de pedidos</h2>
+
+                <button id="refreshOrders"
+                        class="secondary-btn">
+                    Actualizar
+                </button>
+
+            </div>
+
+            <p id="ordersStatus"
+               class="form-status"></p>
+
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>Orden</th>
+                        <th>Estado</th>
+                        <th>Productos</th>
+                        <th>Total</th>
+                        <th>Fecha</th>
+                        <th>Accion</th>
+                    </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- FACTURAS -->
+
+        <section id="invoicesSection" hidden>
+
+            <div class="welcome-panel">
+
+                <h2>Facturas</h2>
+
+                <p>
+                    Aquí aparecerá la gestión
+                    completa de facturas.
+                </p>
+
+            </div>
+
+            <div class="section-header">
+
+                <h2>Listado de facturas</h2>
+
+                <button id="refreshInvoices"
+                        class="secondary-btn">
+                    Actualizar
+                </button>
+
+            </div>
+
+            <p id="invoicesStatus"
+               class="form-status"></p>
+
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>Factura</th>
+                        <th>Orden</th>
+                        <th>Total</th>
+                        <th>Fecha</th>
+                        <th>Comprobante</th>
+                    </tr>
+                    </thead>
+                    <tbody id="invoicesTableBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="invoiceReceiptPanel"
+                 class="receipt-preview"
+                 hidden>
+                <p class="eyebrow">Comprobante</p>
+                <h2>Pedido recibido</h2>
+                <p class="receipt-number">
+                    Orden <strong id="invoiceReceiptOrder"></strong>
+                </p>
+                <p>
+                    Factura #<span id="invoiceReceiptId"></span>
+                </p>
+                <p>
+                    Total: <strong id="invoiceReceiptTotal"></strong>
+                </p>
+                <p id="invoiceReceiptItems"
+                   class="receipt-note"></p>
+            </div>
+
+        </section>
+
+        <!-- USUARIOS -->
+
+        <section id="usersSection" hidden>
+
+            <div class="section-header">
+
+                <h2>Usuarios</h2>
+
+            </div>
+
+            <div class="entity-form-panel">
+
+                <h3>Crear usuario interno</h3>
+
+                <form id="userForm"
+                      class="entity-form">
+
+                    <label>
+                        Correo
+                        <input id="userEmail"
+                               type="email"
+                               required>
+                    </label>
+
+                    <label>
+                        Contrasena
+                        <input id="userPassword"
+                               type="password"
+                               minlength="6"
+                               required>
+                    </label>
+
+                    <label>
+                        Rol
+                        <select id="userRole"
+                                required>
+                            <option value="MESERO">Mesero</option>
+                            <option value="ADMINISTRADOR">Administrador</option>
+                        </select>
+                    </label>
+
+                    <div class="form-actions">
+                        <button type="submit"
+                                class="primary-btn">
+                            Crear usuario
+                        </button>
+                    </div>
+
+                    <p id="userStatus"
+                       class="form-status"></p>
+
+                </form>
+
+            </div>
+
+            <div class="section-header users-list-header">
+
+                <h2>Usuarios existentes</h2>
+
+                <button id="refreshUsers"
+                        class="secondary-btn">
+                    Actualizar
+                </button>
+
+            </div>
+
+            <p id="usersStatus"
+               class="form-status"></p>
+
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Rol</th>
+                    </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="/js/dashboard.js"></script>
+
+</body>
+</html>
